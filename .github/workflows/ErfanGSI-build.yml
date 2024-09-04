@@ -33,7 +33,7 @@ jobs:
 
       - name: 配置环境‌‌
         run: |
-          sudo apt install -y git wget git gzip unzip curl axel aria2 zstd rename p7zip-full pigz
+          sudo apt install -y git wget git gzip unzip curl axel aria2 zstd rename p7zip-full pigz python3-pip
 
       - name: 获取 ErfanGSI 工具
         uses: actions/checkout@main
@@ -54,7 +54,6 @@ jobs:
         run: |
           sudo sed -i 's/USE_MIRROR_FOR_PIP\=true/USE_MIRROR_FOR_PIP\=false/' $GITHUB_WORKSPACE/ErfanGSIs/setup.sh
           sudo bash $GITHUB_WORKSPACE/ErfanGSIs/setup.sh
-          sudo apt-get -y --purge remove "adoptopenjdk-11-hotspot"
           java -version
           pip3 install aligo
 
